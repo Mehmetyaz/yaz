@@ -175,7 +175,7 @@ the same things apply ``Map``
 You can get ``Map<K, YazNotifier<V>>`` on any ``Map`` with ``.listeners``
 
 
-##User Options
+## User Options
 
 You can manage every user options with this service
 
@@ -222,7 +222,7 @@ UserOption<double>("font_size" , defaultValue: 10);
 ````
 
 
-##Content Controller
+## Content Controller
 
 You can store or cache your common uses contents.
 
@@ -240,7 +240,7 @@ However, if the content is too old, it will be restored from db.
   /// else will get from db, save to local and return to you
 ````
 
-###Usage
+### Usage
   
 #### Implement ``CacheAble``
 
@@ -265,7 +265,7 @@ class User with CacheAble<User> {
 
 ````
 
-####Implement your controller
+#### Implement your controller
 
 There are two kind content controller:
 
@@ -335,13 +335,13 @@ controller.update(id);
 ````
 
 
-##Future
+## Future
 
 * VersionedContentController : For versioned contents eg: translations documents
 * Stream to YazNotifier : eg: Database listener to YazNotifier
 
 
-###Support Me: mehmedyaz@gmail.com
+### Support Me: mehmedyaz@gmail.com
 
 
 

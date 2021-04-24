@@ -1,7 +1,10 @@
 name: yaz
 description: Yaz State and Content Menager Package
 version: 0.0.1
-homepage:
+homepage: https://github.com/Mehmetyaz/yaz
+repository: https://github.com/Mehmetyaz/yaz
+authors:
+  - mehmedyaz@gmail.com
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
