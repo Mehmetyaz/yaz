@@ -38,5 +38,3 @@ mixin CacheAble<T> {
   @override
   int get hashCode => identifier.hashCode;
 }
-
-
