@@ -42,4 +42,7 @@ class YazNotifier<T> extends ChangeNotifier {
     _value = value;
     notifyListeners();
   }
+
+  @override
+  String toString() => "YazListener($value)";
 }

@@ -7,7 +7,7 @@ class MultipleChangeNotifier extends ChangeNotifier {
   MultipleChangeNotifier(this.changeNotifiers);
 
   /// Listened change notifiers
-  final List<ChangeNotifier> changeNotifiers;
+  final Iterable<ChangeNotifier> changeNotifiers;
 
   void _combine(VoidCallback listener) {
     for (var o in changeNotifiers) {
