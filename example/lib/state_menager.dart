@@ -25,7 +25,6 @@ class StateManager extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print(list);
           if (Random().nextBool()) {
             list.first++;
           } else {
