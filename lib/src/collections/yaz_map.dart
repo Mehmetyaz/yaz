@@ -2,7 +2,6 @@ import 'dart:collection';
 
 import '../../yaz.dart';
 
-
 /// Copy of dart:core Map
 ///
 /// But this Map notify any changes
