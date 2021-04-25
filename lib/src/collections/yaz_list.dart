@@ -110,6 +110,11 @@ class YazList<E> extends YazNotifier<List<E>> {
     return YazList(List.unmodifiable(elements));
   }
 
+
+  ///
+  List<T> map<T>(T f(E e)) => value.map(f).toList();
+
+
   ///
   E operator [](int index) {
     return value[index];

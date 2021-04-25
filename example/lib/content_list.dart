@@ -43,51 +43,63 @@ class _ContentListState extends State<ContentList> {
     showModalBottomSheet(
         context: context,
         builder: (c) {
-          return Container(
-            height: 500,
-            child: Column(
-                children:
-                    [Colors.green, Colors.amber, Colors.blue, Colors.black]
-                        .map((e) => InkWell(
-                              onTap: () {
-                                UserOption("content_color").value = e;
-                                Navigator.of(c).pop();
-                              },
-                              child: Container(
-                                height: 50,
-                                width: 100,
-                                color: e,
-                              ),
-                            ))
-                        .toList()),
+          return BuiltNotifier(
+            child: Container(
+              height: 500,
+              child: Column(
+                  children:
+                      [Colors.green, Colors.amber, Colors.blue, Colors.black]
+                          .map((e) => InkWell(
+                                onTap: () {
+                                  UserOption("content_color").value = e;
+                                  Navigator.of(c).pop();
+                                },
+                                child: Container(
+                                  height: 50,
+                                  width: 100,
+                                  color: e,
+                                ),
+                              ))
+                          .toList()),
+            ),
           );
         });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Same users NOT load many times"),
-      ),
-      body: entries.isEmpty
-          ? const CircularProgressIndicator()
-          : SafeArea(
-              child: Column(
-                children: [
-                  TextButton(
-                      onPressed: _showSettings,
-                      child: const Text("Set Content Color")),
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: entries.length,
-                        itemBuilder: (c, i) {
-                          return EntryWidget(entry: entries[i]);
-                        }),
+    return BuiltNotifier(
+      child: Scaffold(
+        appBar: AppBar(
+          title: BuiltNotifier(
+              child: const Text("Same users NOT load many times")),
+        ),
+        body: entries.isEmpty
+            ? const CircularProgressIndicator()
+            : BuiltNotifier(
+                child: SafeArea(
+                  child: Column(
+                    children: [
+                      BuiltNotifier(
+                        child: TextButton(
+                            onPressed: _showSettings,
+                            child: const Text("Set Content Color")),
+                      ),
+                      Expanded(
+                        child: BuiltNotifier(
+                          child: ListView.builder(
+                              itemCount: entries.length,
+                              itemBuilder: (c, i) {
+                                return BuiltNotifier(
+                                    child: EntryWidget(entry: entries[i]));
+                              }),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
+      ),
     );
   }
 }
@@ -111,34 +123,42 @@ class _EntryWidgetState extends State<EntryWidget> {
       margin: const EdgeInsets.all(10),
       child: Column(
         children: [
-          FutureBuilder<User?>(
-            future: UserController().getContent(widget.entry.userId),
-            builder: (c, a) {
-              if (a.connectionState != ConnectionState.done) {
-                return const LinearProgressIndicator();
-              }
-              return OptionWrapper<Color>(
-                userOption: UserOption<Color>("user_name_color",
-                    defaultValue: Colors.amber),
-                builder: (c, o) {
-                  return Text(
-                    a.data?.userName ?? "unknown",
-                    style: TextStyle(color: o.value),
-                  );
-                },
-              );
-            },
+          BuiltNotifier(
+            child: FutureBuilder<User?>(
+              future: UserController().getContent(widget.entry.userId),
+              builder: (c, a) {
+                if (a.connectionState != ConnectionState.done) {
+                  return const LinearProgressIndicator();
+                }
+                return OptionWrapper<Color>(
+                  userOption: UserOption<Color>("user_name_color",
+                      defaultValue: Colors.amber),
+                  builder: (c, o) {
+                    return BuiltNotifier(
+                      child: Text(
+                        a.data?.userName ?? "unknown",
+                        style: TextStyle(color: o.value),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
           ),
-          OptionWrapper<Color>(
-            userOption:
-                UserOption<Color>("content_color", defaultValue: Colors.green),
-            builder: (c, o) {
-              return Text(
-                "${widget.entry.comment} ${widget.entry.createDate}",
-                style:
-                    TextStyle(color: UserOption<Color>("content_color").value),
-              );
-            },
+          BuiltNotifier(
+            child: OptionWrapper<Color>(
+              userOption: UserOption<Color>("content_color",
+                  defaultValue: Colors.green),
+              builder: (c, o) {
+                return BuiltNotifier(
+                  child: Text(
+                    "${widget.entry.comment} ${widget.entry.createDate}",
+                    style: TextStyle(
+                        color: UserOption<Color>("content_color").value),
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),

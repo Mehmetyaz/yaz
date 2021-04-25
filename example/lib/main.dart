@@ -1,7 +1,10 @@
+import 'package:example/collections_changes_3.dart';
 import 'package:flutter/material.dart';
 
+import 'collections_changes_2.dart';
 import 'content_list.dart';
-import 'state_menager.dart';
+import 'multiple_value_change.dart';
+import 'single_variable_notifier.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,10 +33,33 @@ class MyApp extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
-                          return StateManager();
+                          return CollectionChanges3();
                         }));
                       },
-                      child: const Text("State Manager")),
+                      // ignore: lines_longer_than_80_chars
+                      child: const Text("Collection State Manager (Method 3- GoodWay)")),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
+                          return CollectionChanges2();
+                        }));
+                      },
+                      // ignore: lines_longer_than_80_chars
+                      child: const Text("Collection State Manager (Method 2- MidWay)")),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
+                          return MultipleValueChange();
+                        }));
+                      },
+                      child: const Text("Multiple Variable State Manager")),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
+                          return SingleVariable();
+                        }));
+                      },
+                      child: const Text("Single Variable State Manager")),
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {

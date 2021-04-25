@@ -1,3 +1,4 @@
+export 'src/built_notifier.dart';
 export 'src/cacheable.dart' show CacheAble;
 export 'src/change_listener_widget.dart' show YazListenerWidget;
 export 'src/collection_extensions/list.dart';

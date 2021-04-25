@@ -10,6 +10,8 @@ Yaz consists of two parts ;
 
 #### 1) State Management
 
+[Demo App Video](https://youtu.be/qyjq9laVdgE)
+
 * Yaz, firstly is a state management package based ``ChangeNotifier`` simple and fast. It does this with only
   one ``widget`` of ``YazListenerWidget``.
 
@@ -69,6 +71,16 @@ Because ``foo`` only trigger changes like that :
     foo.value =  Foo(); // new instance
 ````
 
+### Built Notifier
+We can wrap the widget we want with the built-in notifier. It is painted when it is rebuilt.
+
+`````dart
+  BuiltNotifier(
+        child: YourWidget()
+        );
+`````
+
+
 ## YazListenerWidget
 
 ``YazListenerWidget`` work with any ``ChangeNotifier`` instance. There is no other widget for state management.
@@ -85,6 +97,42 @@ Because ``foo`` only trigger changes like that :
 ### _! Performance Tip:_
 
 Use as small pieces as possible. Use more YazListenerWidgets rather than cover more widgets.
+
+
+### Single Variable
+
+````dart
+  /// define notifier
+  var counter = 0.notifier;
+
+  /// Listen with widget
+  YazListenerWidget(
+    changeNotifier: counter,
+    builder: (BuildContext c) {
+    return Text(counter.value.toString());
+  }
+);
+````
+
+### Multiple Variable
+
+````dart
+  /// define notifiers
+  final counter1 = 0.notifier;
+  final counter2 = 5.notifier;
+  final counter3 = 10.notifier;
+
+  /// Listen with widget
+  YazListenerWidget(
+    changeNotifier: counter1.combineWith([counter2, counter3]),
+    /// or changeNotifier:  MultipleChangeNotifier([counter1 , counter2 ,counter3]),
+    /// or changeNotifier: [counter1 , counter2, counter3].notifyAll
+    builder: (BuildContext c) {
+    return Text(counter.value.toString());
+  }
+);
+````
+
 
 ## Listen collection changes
 
