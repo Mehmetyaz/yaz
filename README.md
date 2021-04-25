@@ -113,6 +113,7 @@ Use as small pieces as possible. Use more YazListenerWidgets rather than cover m
   }
 );
 ````
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/single_changes.gif)
 
 ### Multiple Variable
 
@@ -132,6 +133,7 @@ Use as small pieces as possible. Use more YazListenerWidgets rather than cover m
   }
 );
 ````
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/multiple_changes.gif)
 
 
 ## Listen collection changes
@@ -180,6 +182,7 @@ YazList is a ChangeNotifier and triggered any changes:
       //....
     );
 ````
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/list_2.gif)
 
 This case rebuilt every ``list`` listeners on every changes.
 So if you have one(or some) listeners and you need all list you can use ``YazList`` or ``YazMap``
@@ -218,6 +221,7 @@ changeNotifier: listeners.notifyAll,
 listeners[0].value++; // Rebuilt 0. and 2. Widgets
 listeners[1].value++; // Rebuilt 1. and 2. Widgets
 ````
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/list_3.gif)
 
 the same things apply ``Map``
 You can get ``Map<K, YazNotifier<V>>`` on any ``Map`` with ``.listeners``
