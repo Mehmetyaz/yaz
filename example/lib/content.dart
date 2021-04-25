@@ -1,5 +1,3 @@
-
-
 ///
 class Entry {
   ///
@@ -27,7 +25,6 @@ class Entry {
       "user_id": userId
     };
   }
-
 
   ///
   String entryId;

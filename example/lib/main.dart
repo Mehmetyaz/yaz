@@ -1,7 +1,7 @@
-import 'package:example/collections_changes_3.dart';
 import 'package:flutter/material.dart';
 
 import 'collections_changes_2.dart';
+import 'collections_changes_3.dart';
 import 'content_list.dart';
 import 'multiple_value_change.dart';
 import 'single_variable_notifier.dart';
@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
                         }));
                       },
                       // ignore: lines_longer_than_80_chars
-                      child: const Text("Collection State Manager (Method 3- GoodWay)")),
+                      child: const Text(
+                          "Collection State Manager (Method 3- GoodWay)")),
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
@@ -45,7 +46,8 @@ class MyApp extends StatelessWidget {
                         }));
                       },
                       // ignore: lines_longer_than_80_chars
-                      child: const Text("Collection State Manager (Method 2- MidWay)")),
+                      child: const Text(
+                          "Collection State Manager (Method 2- MidWay)")),
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {

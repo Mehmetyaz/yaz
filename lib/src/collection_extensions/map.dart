@@ -13,7 +13,6 @@ extension MultipleListenerOnList<K, V extends ChangeNotifier> on Map<K, V> {
 
 ///
 extension ListenableMap<K, V> on Map<K, V> {
-
   /// Listen all changes(exclude add and remove operations)
   ///
   /// and notify only changed object

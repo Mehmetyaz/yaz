@@ -23,7 +23,7 @@ class MultipleValueChange extends StatelessWidget {
             children: [
               buildCounter1(),
               YazListenerWidget(
-                  changeNotifier: MultipleChangeNotifier([counter1 , counter2]),
+                  changeNotifier: MultipleChangeNotifier([counter1, counter2]),
                   builder: (c) {
                     return BuiltNotifier(
                         child:

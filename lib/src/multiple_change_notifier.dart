@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 /// Notify listeners any changes in your change notifiers list
 class MultipleChangeNotifier extends ChangeNotifier {
-
   /// Notify listeners any changes in your change notifiers list
   MultipleChangeNotifier(this.changeNotifiers);
 

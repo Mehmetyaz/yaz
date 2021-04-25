@@ -2,7 +2,6 @@ import 'package:yaz/yaz.dart';
 
 import 'user.dart';
 
-
 ///
 class UserController extends StorageContentController<User> {
   ///

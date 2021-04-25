@@ -1,3 +1,9 @@
+## 0.0.3
+
+* Added BuiltNotifier
+* Added examples to README
+
+
 ## 0.0.2+1
 
 First Release Static Analysis Fixes
