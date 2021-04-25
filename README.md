@@ -79,7 +79,7 @@ We can wrap the widget we want with the built-in notifier. It is painted when it
         child: YourWidget()
         );
 `````
-
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/single_changes.gif)
 
 ## YazListenerWidget
 
