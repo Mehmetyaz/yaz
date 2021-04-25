@@ -6,11 +6,17 @@ import 'package:flutter/material.dart';
 class YazListenerWidget<T extends ChangeNotifier> extends StatefulWidget {
   /// Listen changes and rebuilt if necessary
   const YazListenerWidget(
-      {Key? key, required this.changeNotifier, required this.builder})
+      {Key? key,
+      required this.changeNotifier,
+      required this.builder,
+      this.onDispose})
       : super(key: key);
 
   ///
   final T changeNotifier;
+
+  /// Called on widget dispose
+  final void Function()? onDispose;
 
   ///
   /// Listen changes and rebuilt if necessary
@@ -36,6 +42,9 @@ class YazListenerState<T extends YazListenerWidget> extends State<T> {
   @override
   void dispose() {
     _remove();
+    if (widget.onDispose != null) {
+      widget.onDispose!();
+    }
     super.dispose();
   }
 

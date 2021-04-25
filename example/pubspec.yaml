@@ -10,7 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
 
-  yaz: ^0.0.3
+#  yaz: ^0.0.3
+  yaz:
+    path: ../../yaz
 
   cupertino_icons: ^1.0.2
 

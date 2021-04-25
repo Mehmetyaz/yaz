@@ -1,3 +1,8 @@
+
+## 0.0.3+1
+
+Format all documents
+
 ## 0.0.3
 
 * Added BuiltNotifier

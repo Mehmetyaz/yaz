@@ -1,3 +1,4 @@
+import 'package:example/string_change.dart';
 import 'package:flutter/material.dart';
 
 import 'collections_changes_2.dart';
@@ -33,12 +34,24 @@ class MyApp extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
-                          return CollectionChanges3();
+                          return StringChange();
                         }));
                       },
-                      // ignore: lines_longer_than_80_chars
-                      child: const Text(
-                          "Collection State Manager (Method 3- GoodWay)")),
+                      child: const Text("String Change")),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
+                          return SingleVariable();
+                        }));
+                      },
+                      child: const Text("Single Variable State Manager")),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
+                          return MultipleValueChange();
+                        }));
+                      },
+                      child: const Text("Multiple Variable State Manager")),
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
@@ -51,17 +64,12 @@ class MyApp extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
-                          return MultipleValueChange();
+                          return CollectionChanges3();
                         }));
                       },
-                      child: const Text("Multiple Variable State Manager")),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
-                          return SingleVariable();
-                        }));
-                      },
-                      child: const Text("Single Variable State Manager")),
+                      // ignore: lines_longer_than_80_chars
+                      child: const Text(
+                          "Collection State Manager (Method 3- GoodWay)")),
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
