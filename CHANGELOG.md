@@ -1,3 +1,6 @@
+## 0.0.3+2
+
+added onDispose to YazListenerWidget
 
 ## 0.0.3+1
 
