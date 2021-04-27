@@ -152,15 +152,15 @@ class UserOption<T> extends ChangeNotifier {
   /// Please use unique option names
   String name;
 
-  T? _value;
+  late T _value;
 
   /// Option Value.
   /// If you use as a setter, trigger your wrappers
-  T? get value => _value;
+  T get value => _value;
 
   /// Option Value.
   /// If you use as a setter, trigger your wrappers
-  set value(T? value) {
+  set value(T value) {
     if (value == _value) return;
     _value = value;
     notifyListeners();

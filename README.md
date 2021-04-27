@@ -25,6 +25,53 @@ Yaz Package is consisted of two parts;
 
 * Yaz helps you to store and cache your app's Frequently Used Contents.
 
+
+# Example of Flutter Counter App
+
+````dart
+
+/// You don't need a stateful widget
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
+
+  /// 1 ) Define your variable and convert notifier
+  final counter = 0.notifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            /// 2 ) Convert Widget your ChangeNotifier
+            counter.builder((context) => Text(
+                  '${counter.value}',
+                  style: Theme.of(context).textTheme.headline4,
+                )),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          /// 3) Increment Count
+          counter.value++;
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+````
+
 # Usage
 
 ## How to Convert an Object to a Change Notifier?
@@ -263,7 +310,47 @@ stream.cancel();
 
 ## User Options
 
+### Simple Example
 You can manage every user option by this service.
+`````dart
+///
+class MyHomePage extends StatelessWidget {
+  ///
+  MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        /// Wrap widgets with UserOption
+        /// use default value or initialize on your splash screen
+        child: OptionWrapper<double>(
+          userOption: UserOption("font_size_multiplier", defaultValue: 0.5),
+          builder: (c, option) {
+            return Text(
+              "User Option Example",
+              style: TextStyle(fontSize: 10.0 * option.value), 
+              /// Rebuild with new option
+              /// or use directly :
+              /// fontSize: 10.0 * UserOption("font_size_multiplier").value, 
+            );
+          },
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          /// Change options
+          UserOption<double>("font_size_multiplier").value += 0.1;
+        },
+        tooltip: 'Increment Font Size',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+`````
+
+### Usage
 
 You can get option in everywhere:
   ````dart
