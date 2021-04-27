@@ -1,23 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../yaz.dart';
-
-///
-extension ListenableObj<T> on T {
-  /// Convert your variable to change notifier
-  /// You can get value [.value]
-  YazNotifier<T> get notifier {
-    return YazNotifier<T>(this);
-  }
-}
-
-///
-extension MultipleNotifier on ChangeNotifier {
-  /// Listen any changes this and [notifiers] any changes
-  ChangeNotifier combineWith(List<ChangeNotifier> notifiers) {
-    return MultipleChangeNotifier(notifiers..add(this));
-  }
-}
+import '../../yaz.dart';
 
 ///
 class YazNotifier<T> extends ChangeNotifier {

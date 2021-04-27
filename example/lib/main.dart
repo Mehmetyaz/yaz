@@ -1,4 +1,4 @@
-import 'package:example/string_change.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'collections_changes_2.dart';
@@ -6,6 +6,8 @@ import 'collections_changes_3.dart';
 import 'content_list.dart';
 import 'multiple_value_change.dart';
 import 'single_variable_notifier.dart';
+import 'stream_notifier.dart';
+import 'string_change.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +33,13 @@ class MyApp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.of(c).push(MaterialPageRoute(builder: (c) {
+                          return StreamNotifier();
+                        }));
+                      },
+                      child: const Text("Stream Notifer")),
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {

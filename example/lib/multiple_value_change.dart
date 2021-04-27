@@ -22,13 +22,9 @@ class MultipleValueChange extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               buildCounter1(),
-              YazListenerWidget(
-                  changeNotifier: MultipleChangeNotifier([counter1, counter2]),
-                  builder: (c) {
-                    return BuiltNotifier(
-                        child:
-                            Text("SUM : ${counter1.value + counter2.value}"));
-                  }),
+              MultipleChangeNotifier([counter1, counter2]).builder((context) =>
+                  BuiltNotifier(
+                      child: Text("SUM : ${counter1.value + counter2.value}"))),
               buildCounter2(),
             ],
           ),
@@ -49,11 +45,8 @@ class MultipleValueChange extends StatelessWidget {
               },
               child: const Text("Counter1 Increment")),
         ),
-        YazListenerWidget(
-            changeNotifier: counter1,
-            builder: (c) {
-              return BuiltNotifier(child: Text("${counter1.value}"));
-            }),
+        counter1.builder(
+            (context) => BuiltNotifier(child: Text("${counter1.value}"))),
         BuiltNotifier(
           child: TextButton(
               onPressed: () {
@@ -77,11 +70,8 @@ class MultipleValueChange extends StatelessWidget {
               },
               child: const Text("Counter2 Increment")),
         ),
-        YazListenerWidget(
-            changeNotifier: counter2,
-            builder: (c) {
-              return BuiltNotifier(child: Text("${counter2.value}"));
-            }),
+        counter2.builder(
+            (context) => BuiltNotifier(child: Text("${counter2.value}"))),
         BuiltNotifier(
           child: TextButton(
               onPressed: () {

@@ -1,3 +1,11 @@
+## 0.0.4
+
+* file locations and names edited
+* "steam to changeNotifier" added
+* .builder added to ChangeNotifier
+* YazListenerWidget bugs fixed
+
+
 ## 0.0.3+2
 
 added onDispose to YazListenerWidget

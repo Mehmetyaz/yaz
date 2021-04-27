@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'change_listener_widget.dart';
-import 'user_options.dart';
+import '../controllers/user_options.dart';
+import 'yaz_listener_widget.dart';
 
 /// Trigger for on user option change
 /// when options change, wrapped widgets rebuilt

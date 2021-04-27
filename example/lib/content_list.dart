@@ -154,7 +154,7 @@ class _EntryWidgetState extends State<EntryWidget> {
                   child: Text(
                     "${widget.entry.comment} ${widget.entry.createDate}",
                     style: TextStyle(
-                        color: UserOption<Color>("content_color").value),
+                        color: o.value),
                   ),
                 );
               },

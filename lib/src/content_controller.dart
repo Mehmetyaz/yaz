@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'cacheable.dart';
+import 'controllers/cacheable.dart';
 
 abstract class _ContentController<T extends CacheAble> {
   final HashMap<String, T> _contents = HashMap.from({});

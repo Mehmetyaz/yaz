@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../yaz.dart';
+import '../../yaz.dart';
 
 /// Built Notifier paint your widget after built
 class BuiltNotifier extends StatelessWidget {

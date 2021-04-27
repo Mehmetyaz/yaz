@@ -1,37 +1,37 @@
 # yaz
 
-Yaz State and Content Manager Package
+Yaz Package for State, Content and User's Options Managements
 
 # Introduction
 
-Web, Mobile and Desktop Supported
+This package is supported for Web, Mobile and Desktop applications.
 
-Yaz consists of two parts ;
+Yaz Package is consisted of two parts;
 
 #### 1) State Management
 
 [Demo App Video](https://youtu.be/qyjq9laVdgE)
 
-* Yaz, firstly is a state management package based ``ChangeNotifier`` simple and fast. It does this with only
-  one ``widget`` of ``YazListenerWidget``.
+* Yaz Package is a state management package in the first place.  It uses only ``ChangeNotifier`` for the whole process, due to this it is really simple and fast.
+  It uses only one widget. Widget of "YazListenerWidget"
 
-* Yaz, help to you convert your any object to ``ChangeNotifier`` with simple code.
+* Yaz helps you to convert any objects to ``ChangeNotifier`` with a simple code.
 
-* Yaz, support collection(``List`` and ``Map``) changes seperately or fully.
+* Yaz supports for collection changes both in separate or entirely.
 
 #### 2) Content Management
 
-* Yaz, help to you your user options set and get everywhere and everytime.
+* Yaz provides you to get and change user options by a simple code from any part of the application.
 
-* Yaz, help to you store and cache your frequently used contents.
+* Yaz helps you to store and cache your app's Frequently Used Contents.
 
 # Usage
 
-## Convert Object To Change Notifier
+## How to Convert an Object to a Change Notifier?
 
-Any object convertible to change notifier ``YazNotifier``
+Any object might be converted into a ``ChangeNotifier``: ``YazNotifier``
 
-``.notifier`` work on any object and return ``YazNotifier``
+``.notifier`` works on any object and returns a ``YazNotifier``
 
 ````dart
     var counter = 0.notifier;
@@ -39,21 +39,23 @@ Any object convertible to change notifier ``YazNotifier``
     var foo = Foo().notifier; 
 ````
 
-You can get current value And you set value with ``.value``; This setter trigger changes
+``.value`` gets and set an value in ``YazNotifier`` instance;
+
+This setter triggers all listeners
 
 ````dart
     print(counter.value);
-    // out - 0 -
+    // output - 0 -
     
     counter.value++;
     
     print(counter.value);
-    // out - 1 -
+    // output - 1 -
 ````
 
-### _! Warning:_
+### _! Attention:_
 
-if you want to listen changes ``Foo()`` instance members:
+If you wish to listen changes in instance members of ``foo`` :
 
 ````dart
     // DON'T
@@ -65,15 +67,15 @@ if you want to listen changes ``Foo()`` instance members:
     var bar = Foo().bar.notifier;
 ````
 
-Because ``foo`` only trigger changes like that :
+Because ``foo`` is triggered only like this;
 
 ````dart
     foo.value =  Foo(); // new instance
+    foo.value = anotherFoo;
 ````
 
-### Built Notifier
-We can wrap the widget we want with the built-in notifier. It is painted when it is rebuilt.
-
+### BuiltNotifier
+You can see the widgets wrapped by ``BuiltNotifier`` when they are rebuilt. They blink when they are rebuilt.
 `````dart
   BuiltNotifier(
         child: YourWidget()
@@ -83,7 +85,7 @@ We can wrap the widget we want with the built-in notifier. It is painted when it
 
 ## YazListenerWidget
 
-``YazListenerWidget`` work with any ``ChangeNotifier`` instance. There is no other widget for state management.
+``YazListenerWidget`` works with any ``ChangeNotifier`` instance. There is no other widget for state management.
 
 ````dart
     YazListenerWidget(
@@ -94,9 +96,15 @@ We can wrap the widget we want with the built-in notifier. It is painted when it
     );
 ````
 
+Also you can create ``YazListenerWidget`` instance by ``.builder`` method works on any ``ChangeNotifier``s.
+
+````dart
+  changeNotifier.builder((context) => MyWidget());
+````
+
 ### _! Performance Tip:_
 
-Use as small pieces as possible. Use more YazListenerWidgets rather than cover more widgets.
+Narrow down this widget as narrow as possible. Using more ``YazListenerWidget``s is better than using a single widget to wrap all things.
 
 
 ### Single Variable
@@ -111,6 +119,10 @@ Use as small pieces as possible. Use more YazListenerWidgets rather than cover m
     builder: (BuildContext c) {
     return Text(counter.value.toString());
   }
+  
+  //or
+
+  counter.builder((context) => Text(counter.value.toString()))
 );
 ````
 ![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/single_changes.gif)
@@ -136,15 +148,15 @@ Use as small pieces as possible. Use more YazListenerWidgets rather than cover m
 ![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/multiple_changes.gif)
 
 
-## Listen collection changes
+## How to listen collection changes?
 
-There are 3 ways collection listen
+There are 3 ways to listen collections
 
-### 1) Classic Totally Changes - Bad Way
+### 1) Classical Total Changes - Bad Way
 
-In this case, use standart ``.notifier``
+In this way, standard ``.notifier`` is used
 
-But only triggers like this
+But this triggers only like this;
 
 ````dart
     var list = [0,1,2,3].notifier
@@ -160,22 +172,22 @@ But only triggers like this
     );
 ````
 
-### 2) Trigger Any Changes - Mid Way
+### 2) Triggering in any changes - Mid-Way
 
-In this case, created ``YazList`` and YazList have all methods of ``List``
+In this way, a YazList is created.
 
-Also ``YazMap`` same.
+A ``YazList`` can be created by ``.listenAll`` from all ``List`` instances.
 
-You can create ``YazList`` from any list with ``.listenAll``
+``YazMap`` can be created from all ``Map``s by this way, as well.
 
-YazList is a ChangeNotifier and triggered any changes:
+``YazList`` is a ``ChangeNotifier`` and all listeners are triggered in any changes.
 
 ````dart
     YazList<int> list = [0,1,2,3].listenAll;
     list[0] = 5; // Triggered
     list.add(10) = 10; // Triggered
     list.remove(0) = 30; // Triggered
-    /// similarly triggered all changes
+    /// triggered by all methods similarly
     // USAGE
     YazListenerWidget(
       changeNotifier: list,
@@ -184,18 +196,21 @@ YazList is a ChangeNotifier and triggered any changes:
 ````
 ![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/list_2.gif)
 
-This case rebuilt every ``list`` listeners on every changes.
-So if you have one(or some) listeners and you need all list you can use ``YazList`` or ``YazMap``
+### 3) Trigger every element separately - Good Way
 
-### 3) Trigger every element saperately - Good Way
+You can get a ``List<YazNotifier>`` on any ``List`` by ``.listeners`` method.
 
-You can get ``List<YazNotifier>`` on any ``List`` with ``.listeners``
+In this way, ``value`` changes of elements trigger all listeners
 
-In this case changes (exclude add , remove and similar length-shifting or instance changing methods) 
-triggered if have listeners
 
-So for example there are two separate widgets that only listen index of 0 and 1.
-when index of 0 change , other widget not rebuilt;
+When making length-changings like adding or removing elements or making ``YazNotifier`` instance changes; listeners are NOT triggered.
+
+
+For instance, let us assume that there are two separate widgets to listen index of 0 and index of 1.
+When index of 0 is changed, only the widget of 0 is rebuilt.
+Other one is not rebuilt.
+
+To trigger all changes, ``.notifyAll`` method on ``List<YazNotifier>`` may be used.
 
 ````dart
 var listeners = [0,1].listeners;
@@ -223,27 +238,44 @@ listeners[1].value++; // Rebuilt 1. and 2. Widgets
 ````
 ![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/list_3.gif)
 
-the same things apply ``Map``
-You can get ``Map<K, YazNotifier<V>>`` on any ``Map`` with ``.listeners``
+All can be applied on ``Map``.
+You can get a ``Map<K, YazNotifier<V>>`` by ``.listeners`` on ``Map``.
+
+
+
+
+## How to listen Stream?
+
+All streams convertible by ``.yazStream`` or ``.yazStreamWithDefault(value)`` on Stream 
+
+``.yazStream`` returns nullable ``YazStream<T?>``
+
+``.yazStreamWithDefault(value)`` returns non-nullable ``YazStream<T>``
+
+````dart
+YazStream<User?> stream = db.getChanges().yazStream;
+stream.builder((context) => YourWidget());
+
+/// DON'T FORGET
+stream.cancel();
+````
 
 
 ## User Options
 
-You can manage every user options with this service
+You can manage every user option by this service.
 
-You can get everywhere:
+You can get option in everywhere:
   ````dart
     UserOption<double>("font_size").value;
   ````
-and set
-
+and you change
 ````dart
     UserOption<double>("font_size").value = 10.0;
 ````
 
 
-You can wrap your widgets with options,
-when options changed widget rebuilt;
+You can wrap your widgets with options, when options are changed the widgets are rebuilt;
 ````dart
   OptionsWrapper(
     option: UserOption<double>("font_size"),
@@ -255,20 +287,20 @@ when options changed widget rebuilt;
   )
 ````
 
-You can init with your default values;
+You can init by your default values;
 ````dart
   UserOptions().init(List<UserOption> list);
 ````
 
-Listen changes for fetch to db
+You can listen changes for to fetch on db
 ````dart
 UserOptions().onUserOptionsChange((options){
   //fetch
 });
 ````
 
-If you haven't init functions set defaults in first use.
-no need for further use
+If you don't use init functions, you may set default values in the first use.
+You don't have to set default values for your further uses in session flow.
 ````dart
 UserOption<double>("font_size" , defaultValue: 10);
 ````

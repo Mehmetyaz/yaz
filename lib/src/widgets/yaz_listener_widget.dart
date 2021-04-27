@@ -24,13 +24,12 @@ class YazListenerWidget<T extends ChangeNotifier> extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  YazListenerState<YazListenerWidget> createState() => YazListenerState();
+  YazListenerState<T> createState() => YazListenerState();
 }
 
 ///
-class YazListenerState<T extends YazListenerWidget> extends State<T> {
-  late int _notifierHashCode;
-
+class YazListenerState<T extends ChangeNotifier>
+    extends State<YazListenerWidget> {
   @mustCallSuper
   @override
   void initState() {
@@ -42,9 +41,8 @@ class YazListenerState<T extends YazListenerWidget> extends State<T> {
   @override
   void dispose() {
     _remove();
-    if (widget.onDispose != null) {
-      widget.onDispose!();
-    }
+    widget.onDispose?.call();
+
     super.dispose();
   }
 
@@ -54,8 +52,14 @@ class YazListenerState<T extends YazListenerWidget> extends State<T> {
     }
   }
 
+  @override
+  void didUpdateWidget(covariant YazListenerWidget<T> oldWidget) {
+    _remove();
+    _listen();
+    super.didUpdateWidget(oldWidget);
+  }
+
   void _listen() {
-    _notifierHashCode = widget.changeNotifier.hashCode;
     widget.changeNotifier.addListener(_listener);
   }
 
@@ -71,9 +75,6 @@ class YazListenerState<T extends YazListenerWidget> extends State<T> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.changeNotifier.hashCode != _notifierHashCode) {
-      _listen();
-    }
     return widget.builder(context);
   }
 }

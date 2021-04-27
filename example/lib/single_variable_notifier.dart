@@ -24,11 +24,8 @@ class SingleVariable extends StatelessWidget {
                     child: const Text("Increment")),
               ),
               BuiltNotifier(
-                child: YazListenerWidget(
-                    changeNotifier: counter,
-                    builder: (c) {
-                      return BuiltNotifier(child: Text("${counter.value}"));
-                    }),
+                child: counter.builder((context) =>
+                    BuiltNotifier(child: Text("${counter.value}"))),
               ),
               BuiltNotifier(
                 child: TextButton(

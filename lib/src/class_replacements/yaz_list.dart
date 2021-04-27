@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../listenable.dart';
+import '../../yaz.dart';
 
 /// Copy of dart:core List
 ///

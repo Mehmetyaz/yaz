@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'multiple_change_notifier.dart';
+import '../listenable/multiple_change_notifier.dart';
 
 ///
 typedef OnOptionChange = void Function(UserOption option);

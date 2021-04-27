@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-import '../collections/yaz_list.dart';
-import '../listenable.dart';
-import '../multiple_change_notifier.dart';
+import '../../yaz.dart';
 
 ///
 extension MultipleListenerOnList<T extends ChangeNotifier> on List<T> {

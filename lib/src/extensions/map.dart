@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../yaz.dart';
-import '../collections/yaz_map.dart';
 
 ///
-extension MultipleListenerOnList<K, V extends ChangeNotifier> on Map<K, V> {
+extension MultipleListenerOnMap<K extends Object, V extends ChangeNotifier>
+    on Map<K, V> {
   ///
   MultipleChangeNotifier get notifyAll {
     return MultipleChangeNotifier(values);
