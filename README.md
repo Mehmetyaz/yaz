@@ -2,7 +2,7 @@
 
 Yaz Package for State, Content and User's Options Managements
 
-![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/yaz_logo.png)
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/yaz_logo_tran.png)
 
 # Introduction
 
