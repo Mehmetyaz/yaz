@@ -2,6 +2,8 @@
 
 Yaz Package for State, Content and User's Options Managements
 
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/yaz_logo.png)
+
 # Introduction
 
 This package is supported for Web, Mobile and Desktop applications.

@@ -24,7 +24,9 @@ class CollectionChanges2 extends StatelessWidget {
         itemBuilder: (c, i) {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 30),
-            child: CounterWidget(counterList: list, index: i),
+            child: CounterWidget(
+                key: ObjectKey("value_$i"),
+                counterList: list, index: i),
           );
         },
       ),
