@@ -1,3 +1,7 @@
+## 0.0.4+3
+
+* Logo Edited
+
 ## 0.0.4+2
 
 * Added Logo

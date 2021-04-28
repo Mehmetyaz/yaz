@@ -3,7 +3,7 @@
 Yaz Package for State, Content and User's Options Managements
 
 
-<img src="https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/yaz_logo_tran.png" alt="drawing" width="200"/>
+![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/yaz_logo_tran_m.png)
 
 
 # Introduction
