@@ -1,10 +1,10 @@
-import 'package:example/logo_paint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'collections_changes_2.dart';
 import 'collections_changes_3.dart';
 import 'content_list.dart';
+import 'logo_paint.dart';
 import 'multiple_value_change.dart';
 import 'single_variable_notifier.dart';
 import 'stream_notifier.dart';
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
-                          return YazLogo();
+                          return const YazLogo();
                         }));
                       },
                       child: const Text("Logo")),

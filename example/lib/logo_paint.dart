@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
+///
 class YazLogo extends StatelessWidget {
+  ///
+  const YazLogo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,16 +77,14 @@ class _YazLogoPainter extends CustomPainter {
       ..color = const Color(0xFF2596c9).withOpacity(0.8)
       ..style = PaintingStyle.fill;
     var centerRectPaint = Paint()
-
-       ..color = const Color(0xFF29b6f6)
+      ..color = const Color(0xFF29b6f6)
       ..style = PaintingStyle.fill;
 
     canvas
       ..drawPath(topLeftPath, topRightPaint)
       ..drawPath(topRightPath, topLeftPaint)
       ..drawPath(bottomPath, bottomPaint)
-      ..drawPath(centerRect, centerRectPaint)
-    ;
+      ..drawPath(centerRect, centerRectPaint);
   }
 
   @override

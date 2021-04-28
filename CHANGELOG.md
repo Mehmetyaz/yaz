@@ -1,7 +1,12 @@
+## 0.0.4+2
+
+* Added Logo
+
 ## 0.0.4+1
 
 * UserOptions restored. Added late modifier to non-nullable ``value``
 * Added simple examples to README
+
 ## 0.0.4
 
 * file locations and names edited
