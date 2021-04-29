@@ -1,3 +1,7 @@
+## 0.0.5+1
+
+* Export Edited
+
 ## 0.0.5
 
 * Versioned Content Controller Added (Not Tested)

@@ -4,6 +4,7 @@ export 'src/class_replacements/yaz_map.dart';
 export 'src/content_controller.dart';
 export 'src/controllers/cacheable.dart';
 export 'src/controllers/user_options.dart';
+export 'src/controllers/versionable.dart';
 export 'src/extensions/change_notifier_ext.dart';
 export 'src/extensions/list.dart';
 export 'src/extensions/map.dart';
