@@ -3,11 +3,15 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yaz/src/controllers/versionable.dart';
 
 import 'controllers/cacheable.dart';
 
 abstract class _ContentController<T extends CacheAble> {
   final HashMap<String, T> _contents = HashMap.from({});
+
+  /// Your stored/cached contents
+  Map<String, T> get contents => _contents;
 
   /// sorted asc by cache dates index of cache dates
   final Map<String, int> _cacheDates = {};
@@ -237,4 +241,48 @@ abstract class StorageContentController<T extends CacheAble>
     }
     return;
   }
+}
+
+///
+abstract class VersionedContentController<T extends Versioned>
+    extends StorageContentController<T> {
+  /// Content Versions
+  Map<String, int> versions = {};
+
+  @override
+  int get maxCount => 10000;
+
+  @override
+  Duration get maxDuration => const Duration(days: 365);
+
+  @override
+  bool get isInit => super.isInit;
+
+  @override
+  Future<void> init(
+      {bool storeAllDocuments = false, bool clearAndReInit = false}) async {
+    var localFtr = super.init(clearAndReInit: clearAndReInit);
+    versions = await versionGetter();
+    await localFtr;
+    await checkAndUpdate(updateVersions: false);
+    return;
+  }
+
+  /// Check and compare contents versions and update if necessary
+  Future<void> checkAndUpdate({bool updateVersions = true}) async {
+    if (updateVersions) {
+      versions = await versionGetter();
+    }
+    var ftrs = <Future<void>>[];
+    for (var con in versions.entries) {
+      if (con.value != contents[con.key]?.version) {
+        ftrs.add(update(con.key));
+      }
+    }
+    await Future.wait(ftrs);
+    return;
+  }
+
+  ///
+  Future<Map<String, int>> versionGetter();
 }

@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Versioned Content Controller Added (Not Tested)
+
 ## 0.0.4+3
 
 * Logo Edited
