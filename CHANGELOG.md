@@ -1,3 +1,8 @@
+## 0.0.5+2
+
+* Removed <T> modifier on CacheAble
+
+
 ## 0.0.5+1
 
 * Export Edited

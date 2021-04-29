@@ -37,7 +37,7 @@ class UserController extends CacheContentController<User> {
 }
 
 ///
-class User with CacheAble<User> {
+class User with CacheAble {
   ///
   User(this._userID);
 

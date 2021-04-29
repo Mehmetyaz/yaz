@@ -1,7 +1,7 @@
 import 'package:yaz/yaz.dart';
 
 ///
-class User with CacheAble<User> {
+class User with CacheAble {
   ///
   User(this.userId, this.userName);
 

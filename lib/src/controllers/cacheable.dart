@@ -7,7 +7,7 @@
 /// local getter
 ///
 ///
-mixin CacheAble<T> {
+mixin CacheAble {
   /// Content cache time
   ///
   /// if content cache time greater than
@@ -29,7 +29,7 @@ mixin CacheAble<T> {
   /// there may be data loss
   @override
   bool operator ==(Object other) {
-    return other is CacheAble<T> && identifier == other.identifier;
+    return other is CacheAble && identifier == other.identifier;
   }
 
   /// hashcode override for hashmap performance improvement
