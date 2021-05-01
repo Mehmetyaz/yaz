@@ -258,9 +258,15 @@ abstract class VersionedContentController<T extends Versioned>
   @override
   bool get isInit => super.isInit;
 
+  ///
+  bool _storeAll = true;
+
   @override
   Future<void> init(
-      {bool storeAllDocuments = false, bool clearAndReInit = false}) async {
+      {bool? storeAllDocuments,
+      bool clearAndReInit = false,
+      String? initialIdentifier}) async {
+    _storeAll = storeAllDocuments ?? _storeAll;
     var localFtr = super.init(clearAndReInit: clearAndReInit);
     versions = await versionGetter();
     await localFtr;
@@ -269,17 +275,23 @@ abstract class VersionedContentController<T extends Versioned>
   }
 
   /// Check and compare contents versions and update if necessary
-  Future<void> checkAndUpdate({bool updateVersions = true}) async {
+  Future<void> checkAndUpdate(
+      {String? identifier, bool updateVersions = true}) async {
     if (updateVersions) {
       versions = await versionGetter();
     }
     var ftrs = <Future<void>>[];
-    for (var con in versions.entries) {
-      if (con.value != contents[con.key]?.version) {
-        ftrs.add(update(con.key));
+
+    if (identifier != null) {
+      await update(identifier);
+    } else {
+      for (var con in versions.entries) {
+        if (con.value != contents[con.key]?.version) {
+          ftrs.add(update(con.key));
+        }
       }
+      await Future.wait(ftrs);
     }
-    await Future.wait(ftrs);
     return;
   }
 

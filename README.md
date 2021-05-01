@@ -134,6 +134,15 @@ You can see the widgets wrapped by ``BuiltNotifier`` when they are rebuilt. They
 `````
 ![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/single_changes.gif)
 
+If you want to wrap all ``YazListenerWidget`` with ``BuiltNotifier`` on debug mode:
+
+add to main function this expression
+
+`````dart
+  UserOption("always_notify_built_debug").value = true;
+`````
+
+
 ## YazListenerWidget
 
 ``YazListenerWidget`` works with any ``ChangeNotifier`` instance. There is no other widget for state management.

@@ -1,6 +1,9 @@
 library yaz_state;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../../yaz.dart';
 
 /// Listen changes and rebuilt if necessary
 class YazListenerWidget<T extends ChangeNotifier> extends StatefulWidget {
@@ -75,6 +78,10 @@ class YazListenerState<T extends ChangeNotifier>
 
   @override
   Widget build(BuildContext context) {
+    if (UserOption("always_notify_built_debug", defaultValue: false).value &&
+        kDebugMode) {
+      return BuiltNotifier(child: widget.builder(context));
+    }
     return widget.builder(context);
   }
 }

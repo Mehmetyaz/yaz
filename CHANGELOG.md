@@ -1,3 +1,11 @@
+## 0.0.5+4
+
+* Always built notifier option
+
+## 0.0.5+3
+
+* Added one document update option to Versioned
+
 ## 0.0.5+2
 
 * Removed <T> modifier on CacheAble
