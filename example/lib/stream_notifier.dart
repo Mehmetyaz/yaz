@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:yaz/yaz.dart';
 
 ///
-class StreamNotifier extends StatelessWidget {
+class StreamNotifierExample extends StatelessWidget {
   ///
-  StreamNotifier({Key? key})
+  StreamNotifierExample({Key? key})
       : stream =
             Stream<int>.periodic(const Duration(milliseconds: 500), (i) => i)
                 .yazStreamWithDefault(0),

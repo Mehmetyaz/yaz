@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yaz/yaz.dart';
 
 import 'collections_changes_2.dart';
 import 'collections_changes_3.dart';
@@ -11,6 +12,7 @@ import 'stream_notifier.dart';
 import 'string_change.dart';
 
 void main() {
+  UserOption.create(value: true, name: "always_notify_built_debug");
   runApp(const MyApp());
 }
 
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(c).push(MaterialPageRoute(builder: (c) {
-                          return StreamNotifier();
+                          return StreamNotifierExample();
                         }));
                       },
                       child: const Text("Stream Notifer")),

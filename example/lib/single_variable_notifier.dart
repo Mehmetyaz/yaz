@@ -13,29 +13,22 @@ class SingleVariable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: BuiltNotifier(
-          child: Column(
-            children: [
-              BuiltNotifier(
-                child: TextButton(
-                    onPressed: () {
-                      counter.value++;
-                    },
-                    child: const Text("Increment")),
-              ),
-              BuiltNotifier(
-                child: counter.builder((context) =>
-                    BuiltNotifier(child: Text("${counter.value}"))),
-              ),
-              BuiltNotifier(
-                child: TextButton(
-                    onPressed: () {
-                      counter.value--;
-                    },
-                    child: const Text("Decrement")),
-              )
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () {
+                  counter.value++;
+                },
+                child: const Text("Increment")),
+            counter.builder((context) =>
+                Text("${counter.value}")),
+            TextButton(
+                onPressed: () {
+                  counter.value--;
+                },
+                child: const Text("Decrement"))
+          ],
         ),
       ),
     );

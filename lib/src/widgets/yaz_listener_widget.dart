@@ -12,6 +12,7 @@ class YazListenerWidget<T extends ChangeNotifier> extends StatefulWidget {
       {Key? key,
       required this.changeNotifier,
       required this.builder,
+      this.notifyOnDebug = true,
       this.onDispose})
       : super(key: key);
 
@@ -20,6 +21,9 @@ class YazListenerWidget<T extends ChangeNotifier> extends StatefulWidget {
 
   /// Called on widget dispose
   final void Function()? onDispose;
+
+  ///
+  final bool notifyOnDebug;
 
   ///
   /// Listen changes and rebuilt if necessary
@@ -78,10 +82,13 @@ class YazListenerState<T extends ChangeNotifier>
 
   @override
   Widget build(BuildContext context) {
-    if (UserOption("always_notify_built_debug", defaultValue: false).value &&
+    var _child = widget.builder(context);
+    if (widget.notifyOnDebug &&
+        UserOption<bool>("always_notify_built_debug", defaultValue: false)
+            .value &&
         kDebugMode) {
-      return BuiltNotifier(child: widget.builder(context));
+      return BuiltNotifier(child: _child);
     }
-    return widget.builder(context);
+    return _child;
   }
 }

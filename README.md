@@ -139,7 +139,7 @@ If you want to wrap all ``YazListenerWidget`` with ``BuiltNotifier`` on debug mo
 add to main function this expression
 
 `````dart
-  UserOption("always_notify_built_debug").value = true;
+  UserOption<bool>.create(name:"always_notify_built_debug" , value: true);
 `````
 
 

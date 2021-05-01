@@ -17,17 +17,14 @@ class MultipleValueChange extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: BuiltNotifier(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              buildCounter1(),
-              MultipleChangeNotifier([counter1, counter2]).builder((context) =>
-                  BuiltNotifier(
-                      child: Text("SUM : ${counter1.value + counter2.value}"))),
-              buildCounter2(),
-            ],
-          ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            buildCounter1(),
+            MultipleChangeNotifier([counter1, counter2]).builder(
+                (context) => Text("SUM : ${counter1.value + counter2.value}")),
+            buildCounter2(),
+          ],
         ),
       ),
     );
@@ -38,22 +35,17 @@ class MultipleValueChange extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BuiltNotifier(
-          child: TextButton(
-              onPressed: () {
-                counter1.value++;
-              },
-              child: const Text("Counter1 Increment")),
-        ),
-        counter1.builder(
-            (context) => BuiltNotifier(child: Text("${counter1.value}"))),
-        BuiltNotifier(
-          child: TextButton(
-              onPressed: () {
-                counter1.value--;
-              },
-              child: const Text("Counter1 Decrement")),
-        )
+        TextButton(
+            onPressed: () {
+              counter1.value++;
+            },
+            child: const Text("Counter1 Increment")),
+        counter1.builder((context) => Text("${counter1.value}")),
+        TextButton(
+            onPressed: () {
+              counter1.value--;
+            },
+            child: const Text("Counter1 Decrement"))
       ],
     );
   }
@@ -63,22 +55,17 @@ class MultipleValueChange extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        BuiltNotifier(
-          child: TextButton(
-              onPressed: () {
-                counter2.value++;
-              },
-              child: const Text("Counter2 Increment")),
-        ),
-        counter2.builder(
-            (context) => BuiltNotifier(child: Text("${counter2.value}"))),
-        BuiltNotifier(
-          child: TextButton(
-              onPressed: () {
-                counter2.value--;
-              },
-              child: const Text("Counter2 Decrement")),
-        )
+        TextButton(
+            onPressed: () {
+              counter2.value++;
+            },
+            child: const Text("Counter2 Increment")),
+        counter2.builder((context) => Text("${counter2.value}")),
+        TextButton(
+            onPressed: () {
+              counter2.value--;
+            },
+            child: const Text("Counter2 Decrement"))
       ],
     );
   }

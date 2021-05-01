@@ -1,3 +1,11 @@
+## 0.0.5+6
+
+* Bug fixes
+
+## 0.0.5+5
+
+* Bug fixes
+
 ## 0.0.5+4
 
 * Always built notifier option
