@@ -1,3 +1,7 @@
+## 0.0.5+7
+
+* Bug Fixes
+
 ## 0.0.5+6
 
 * Bug fixes

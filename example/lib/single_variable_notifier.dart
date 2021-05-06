@@ -7,7 +7,7 @@ class SingleVariable extends StatelessWidget {
   SingleVariable({Key? key}) : super(key: key);
 
   ///
-  final counter = 0.notifier;
+  final YazNotifier<int> counter = 0.notifier;
 
   @override
   Widget build(BuildContext context) {

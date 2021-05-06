@@ -1,7 +1,13 @@
+[![pub package](https://img.shields.io/pub/v/yaz.svg)](https://pub.dev/packages/yaz)
+[![style: effective dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+[![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/MehmetYaz/yaz)
+
+![GitHub Repo stars](https://img.shields.io/github/stars/MehmetYaz/yaz?style=social)
+![GitHub Sponsors](https://img.shields.io/github/sponsors/MehmetYaz?style=social)
 # yaz
 
 Yaz Package for State, Content and User's Options Managements
-
 
 ![Example](https://github.com/Mehmetyaz/yaz/blob/master/example/gifs/yaz_logo_tran_m.png)
 

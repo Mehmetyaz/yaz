@@ -10,10 +10,14 @@ extension YazNotifierExtension on ChangeNotifier {
   }
 
   /// Create Yaz Listener Widget that listen your change notifier
-  Widget builder(WidgetBuilder builder) {
+  Widget builder(WidgetBuilder builder,
+      {Key? key, void Function()? onDispose, bool notifyOnDebug = true}) {
     return YazListenerWidget(
       changeNotifier: this,
       builder: builder,
+      key: key,
+      onDispose: onDispose,
+      notifyOnDebug: notifyOnDebug,
     );
   }
 }
