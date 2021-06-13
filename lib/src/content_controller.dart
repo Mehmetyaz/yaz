@@ -220,15 +220,21 @@ abstract class StorageContentController<T extends CacheAble>
 
   Future<void> _setApplicationStorage() async {
     if (!isInit) throw Exception("Before must init");
-    await _preferences!.setStringList(_key,
-        _contents.values.map<String>((e) => json.encode(toJson(e))).toList());
+    await _preferences!.setStringList(
+        _key,
+        _contents.values
+            .map<String>((e) => json.encode(
+                toJson(e)..["cache_time"] = e.cacheTime.millisecondsSinceEpoch))
+            .toList());
   }
 
   Future<void> _getApplicationStorage() async {
     var contentStrings = (_preferences!.getStringList(_key) ?? <String>[]);
     var keys = <String>[];
     for (var contentString in contentStrings) {
-      var content = fromJson(json.decode(contentString));
+      var j = json.decode(contentString);
+      var content = fromJson(j)
+        ..cacheTime = DateTime.fromMillisecondsSinceEpoch(j["cache_time"]);
       keys.add(content.identifier);
       _contents[content.identifier] = content;
     }

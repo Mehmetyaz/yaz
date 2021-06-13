@@ -83,12 +83,12 @@ class YazListenerState<T extends ChangeNotifier>
   @override
   Widget build(BuildContext context) {
     var _child = widget.builder(context);
-    if (widget.notifyOnDebug &&
-        UserOption<bool>("always_notify_built_debug", defaultValue: false)
-            .value &&
-        kDebugMode) {
-      return BuiltNotifier(child: _child);
-    }
+    // if (widget.notifyOnDebug &&
+    //     UserOption<bool>("always_notify_built_debug", defaultValue: false)
+    //         .value &&
+    //     kDebugMode) {
+    //   return BuiltNotifier(child: _child);
+    // }
     return _child;
   }
 }
